@@ -28,6 +28,10 @@ public class Pelicula {
 	
 	@Column(name = "director_pelicula")
 	private String director;
+	
+	@Column(name = "precio_pelicula")
+	private String precio;
+	
 
 	public int getCodigo() {
 		return codigo;
@@ -77,10 +81,18 @@ public class Pelicula {
 		this.director = director;
 	}
 
+	public String getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(String precio) {
+		this.precio = precio;
+	}
+
 	@Override
 	public String toString() {
 		return "Pelicula [codigo=" + codigo + ", titulo=" + titulo + ", descripcion=" + descripcion + ", genero="
-				+ genero + ", fecha_estreno=" + fecha_estreno + ", director=" + director + "]";
+				+ genero + ", fecha_estreno=" + fecha_estreno + ", director=" + director + ", precio=" + precio + "]";
 	}
 	
 	
