@@ -18,8 +18,19 @@ public class Pelicula_Service_Rest {
 	@GET
 	@Path("/datos")
 	@Produces("application/json")
-	public Pelicula getPelicula(@QueryParam("f") String nombre) {
+	public Respuesta getPelicula(@QueryParam("f") String nombre) {
 		Pelicula p = gp.obtenerPelicula(nombre);
-		return p;
+		Respuesta respuesta= new Respuesta();
+		if(p !=null) {
+			respuesta.setCodigo(1);
+			respuesta.setMensaje("ok");
+			respuesta.setPelicula(p);
+		}else {
+			respuesta.setCodigo(0);
+			respuesta.setMensaje("No se encuentra la pelicula en nuestro catalogo");
+			respuesta.setPelicula(p);
+		}
+		
+		return respuesta;
 	}
 }
